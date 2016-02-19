@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="chunkApp">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Chunks</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<link rel="stylesheet" type="text/css" href="/css/animate.css">
+
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.js"></script>
+	<script type="text/javascript" src="/js/app.js"></script>
+	<script type="text/javascript" src="/js/controllers.js"></script>
+	<script type="text/javascript" src="/js/factories.js"></script>
+		
+	
+</head>
+<body ng-controller="chunkTroller as chunk">
+<div class="container">
+	<h1>Random Team Maker</h1>
+	<form ng-submit="chunk.sendTeamData(teamInfo)">
+		<input type="text" placeholder="# of people" ng-model="teamInfo.people">
+		<input type="text" placeholder="# of groups" ng-model="teamInfo.groups">
+		<input type="submit">
+	</form>
+	<div ng-repeat="(teamIndex,team) in chunk.teams" class="team animated bounceIn">
+		<div >Team {{teamIndex+1}}
+			<div class="team-members text-center">{{team}}</div> 
+		</div>
+	</div>
+</div>
+</body>
+</html>
